@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-sm-6">
+        <div class="row">
+            <div class="thumbnail">
+                <img class="img-responsive" src="/images/show.jpg">
+                    <div class="caption-full">
+                    <h4><a><%= user.name %></a></h4>
+                    <p>About: <%= user.about %></p>
+                    <p>Looking for: <%= user.gender %></p>
+                    <p>Share Room: <%= user.room %></p>
+                    <p>Share Bathroom: <%= user.bathroom %>
+                    <p>Monthly budget: <%= user.budget %></p>
+                    <p>Commute Time (each way): <%= user.commute %></p>
+                    </div>
+            </div>
+                <div class="well">
+                    <% user.comments.forEach(function(comment){ %>
+                        <div class="row">
+                            <strong><%= currentUser.username %></strong> 
+                                <div class="pull-right">
+                                    <strong><span><%= comment.created.toDateString() %></span></strong>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <%= comment.text %>
+                            <hr/>
+                        </div>
+                    <% }) %>
+                            <div class="text-right">
+                                <a class="btn btn-success" href="/profiles/<%= user._id %>/comments/new">Add New Comment</a>
+                            </div>
+                    </div>
+    <div class="col-md-3"></div>
+</div>
+                                            
+
+<% include ../partials/footer %>
