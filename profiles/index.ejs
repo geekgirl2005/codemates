@@ -1,0 +1,40 @@
+<% include ../partials/header %> 
+<div class="container">
+ <div class="jumbotron jumbotron-image">
+  <div class="img"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <h2 style="color: black">Welcome to Codemates! </h2>
+                  <p style="color:black; font-size: 2em;">
+                    Find a codemate for the <strong>March Cohort</strong> in <strong>Washington, DC</strong>
+                </p>
+                <p style="color:black; font-size: 1.5em;">
+                    <strong>New locations and dates comming soon!</strong>
+                </p>
+                <a href="/profiles/new" class="btn btn-success btn-lg">Add New Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+       <div class="row text-left" style="display:flex; flex-wrap: wrap;">
+          <% users.forEach(function(user){ %>
+              <div class="col-md-4 col-sm-6">
+                  <div class="thumbnail">
+                   <h4><%= user.name %></h4>
+                   <p>Looking for: <%= user.gender %></p>
+                   <p>Share Room: <%= user.room %></p>
+                   <p>Budget: <%= user.budget %></p>
+                   <p>
+                    <a href="/profiles/<%= user._id %>" class="btn btn-info">More Info</a>
+                   </p>
+                  </div>
+              </div>
+          <% }); %>
+      </div>
+</div>
+<% include ../partials/footer %> 
+
+
+
+
